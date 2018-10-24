@@ -8,7 +8,7 @@ Description: The samplingTools package provides a suite of functions to
     organize data for multistage complex sampling (e.g., serpentine sorting)
     and to help create replicate weights and variance estimates for given
     such designs.
-License: None
+License: CC0
 Encoding: UTF-8
 LazyData: true
 Depends:
