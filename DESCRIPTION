@@ -1,0 +1,19 @@
+Package: samplingTools
+Type: Package
+Title: Functions to create and analyze complex sampling data
+Version: 0.0.0.9000
+Authors@R: person("Adam", "Maier", email = "adam.maier@tntp.org", role = c("aut", "cre"))
+Maintainer: Adam Maier <adam.maier@tntp.org>
+Description: The samplingTools package provides a suite of functions to
+    organize data for multistage complex sampling (e.g., serpentine sorting)
+    and to help create replicate weights and variance estimates for given
+    such designs.
+License: None
+Encoding: UTF-8
+LazyData: true
+Depends:
+    R (>= 3.4.0)
+Imports:
+    dplyr (>= 0.7.6),
+    rlang (>= 0.2.1)
+RoxygenNote: 6.1.0
