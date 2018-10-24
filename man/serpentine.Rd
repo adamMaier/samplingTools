@@ -2,17 +2,24 @@
 % Please edit documentation in R/serpentine.R
 \name{serpentine}
 \alias{serpentine}
+\alias{mixed_serpentine}
 \title{Perform serpentine sorts on multiple variables.}
 \usage{
 serpentine(data = NULL, ...)
+
+mixed_serpentine(data = NULL, ...)
 }
 \arguments{
 \item{data}{is the data.frame to be sorted}
 
-\item{...}{are the variables to serpentine sort, in the given order. That is,
-the first variable listed will be sorted in ascending order, the second
-variable will alternate between ascending and descending order by the value
-of the first variable, and so on.}
+\item{...}{are the variables to serpentine sort, in the given order. In
+\code{serpentine}, the first variable listed will be sorted in ascending
+order, the second variable will alternate between ascending and descending
+order by the value of the first variable, and so on. In
+\code{mixed_serpentine}, it is assumed all variables listed should be
+sorted in ascending order except the last, which is serpentine sorted. The
+user can choose a descending sort for any variable except the last by using
+the \code{desc()} wrapper.}
 }
 \value{
 A data.frame with equal size as the original data, but sorted
@@ -20,23 +27,25 @@ A data.frame with equal size as the original data, but sorted
 }
 \description{
 \code{serpentine} sorts data in a serpentine fashion (alternating between
-  ascending and descending orders). This is helpful in complex sampling
-  designs with implicit stratification, as it reduces the variation in the
-  stratified outcome for adjacent sampled units and thus reduces the overall
-  sampling error. Serpentine sorts are commonly used in NCES surveys.
+  ascending and descending orders) for all variables specified.
+  \code{mixed_serpentine} sorts the data with ascending or descending sorts
+  for every variable specified except the last, which is serpentine sorted.
+}
+\details{
+This is helpful in complex sampling designs with implicit stratification, as
+  it reduces the variation in the stratified outcome for adjacent sampled
+  units and thus reduces the overall sampling error. Serpentine sorts are
+  commonly used in NCES surveys.
 }
 \examples{
+# All variables except first are serpentine sorted
 serpentine(data = mtcars, cyl, mpg)
 serpentine(data = mtcars, cyl, vs, mpg)
 
-# If you only want to serpentine sort the mpg variable but keep the rest of
-# the variables in descending order, then create a new group index variable
-# with your specified non-serpentined sorted variables.
-# Following example uses pipelines and dplyr
-library(magrittr)
-library(dplyr)
-mtcars \%>\%
-  mutate(group_num = group_indices(., cyl, vs)) \%>\%
-  serpentine(group_num, mpg)
+# cyl, and vs are ascending sorted while mpg is serpentine sorted
+mixed_serpentine(mtcars, cyl, vs, mpg)
+
+# cyl is ascending, vs is descending, and mpg is serpentine sorted
+mixed_serpentine(mtcars, cyl, desc(vs), mpg)
 
 }
