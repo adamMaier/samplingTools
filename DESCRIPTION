@@ -7,9 +7,6 @@ Description: Empty for now.
 License: CC0
 Encoding: UTF-8
 LazyData: true
-Depends:
-    R (>= 3.4.0)
-Imports:
-    dplyr (>= 0.7.6),
-    rlang (>= 0.2.1)
+Depends: R (>= 3.4.0)
+Imports: dplyr (>= 0.7.6), rlang (>= 0.2.1)
 RoxygenNote: 6.1.0
