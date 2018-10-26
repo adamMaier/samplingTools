@@ -79,6 +79,8 @@ single_serp <- function(data = NULL, var_desc = NULL, var_serp = NULL) {
 #' @export
 serpentine <- function(data = NULL, ...) {
 
+  # Extract key parts of provided function arguments
+  orig_names <- names(data)
   full_vars <- rlang::quos(...)
 
   # Creating error if fewer than 2 variables specified
