@@ -3,13 +3,10 @@ Type: Package
 Title: Functions to create and analyze complex sampling data
 Version: 0.0.0.9000
 Authors@R: person("Adam", "Maier", email = "adam.maier@tntp.org", role = c("aut", "cre"))
-Description: Empty for now.
+Description: Tools for sampling from a frame, including serpentine sorting
 License: CC0
 Encoding: UTF-8
 LazyData: true
-Depends: 
-    R (>= 3.4.0),
-    rlang (>= 0.2.1)
-Imports: 
-    dplyr (>= 0.7.6)
+Depends: R (>= 3.4.0), rlang (>= 0.2.1)
+Imports: dplyr (>= 0.7.6)
 RoxygenNote: 6.1.0
